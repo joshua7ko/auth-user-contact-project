@@ -1,0 +1,46 @@
+# Node modules directory
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+
+# Directory for runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Directory for temporary files
+tmp/
+temp/
+
+# Directory for application-specific cache
+.cache/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Dependency directories
+jspm_packages/
+
+# IDE specific files
+.vscode/
+.idea/
+
+# Binaries and build outputs
+dist/
+build/
+coverage/
+
+# NPM package versions for Yarn and PNPM
+.pnp.*
+.yarn/*
+.pnpm-store/
