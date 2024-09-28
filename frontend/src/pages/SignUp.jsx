@@ -12,6 +12,8 @@ function Signup(){
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
 
+    
+    const apiUrl = import.meta.env.VITE_API_URL
 
     useEffect(() => {
          fetchUsers()
@@ -20,7 +22,7 @@ function Signup(){
     }, []);
 
     const fetchUsers = () => {
-        axios.get('http://localhost:3001/register')
+        axios.get(`${apiUrl}/register`)
         .then((res) => {
             // console.log(res.data)
         })
@@ -35,7 +37,7 @@ function Signup(){
             return; 
         }
 
-        axios.post('http://localhost:3001/register', {email, username, password})
+        axios.post(`${apiUrl}/register`, {email, username, password})
         .then(() => {
             alert('User Registered Succesfully')
             setEmail('')

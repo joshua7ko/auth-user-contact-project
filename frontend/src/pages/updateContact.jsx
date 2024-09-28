@@ -16,6 +16,9 @@ const UpdateContact = ({ isOpen, closeModal, contact, onUpdate }) => {
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState('');
 
+
+ const apiUrl = import.meta.env.VITE_API_URL
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -27,7 +30,7 @@ const UpdateContact = ({ isOpen, closeModal, contact, onUpdate }) => {
         address,
         notes,
       };
-      const res = await axios.put(`http://localhost:3001/contacts/${contact._id}`, updatedContact, {
+      const res = await axios.put(`${apiUrl}/contacts/${contact._id}`, updatedContact, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

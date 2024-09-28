@@ -14,6 +14,8 @@ const Account = () => {
     const [showContactModal, setShowContactModal] = useState(false);
     const [contactToUpdate, setContactToUpdate] = useState(null);
     
+    const apiUrl = import.meta.env.VITE_API_URL
+
 useEffect(() => {
     const fetchContacts = async () => {
         try {
@@ -24,7 +26,7 @@ useEffect(() => {
                 return;
 
             }
-            const response = await axios.get('http://localhost:3001/contacts', {
+            const response = await axios.get(`${apiUrl}/contacts`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -67,7 +69,7 @@ const handleUpdateContact = (contact) => {
 
 const handleContactUpdated = (contactId, updatedContact) => {
   setContacts((prevContacts) =>
-    prevContacts.map((contact) => (contact._id === contactId ? updatedContact : contact))
+    prevContacts.map(contact => contact._id === contactId ? updatedContact : contact)
   );
   setShowContactModal(false);
 };
@@ -75,7 +77,7 @@ const handleContactUpdated = (contactId, updatedContact) => {
 const handleDeleteContact = async (contactId) => {
   try {
     const token = localStorage.getItem('token');
-    const response = await axios.delete(`http://localhost:3001/contacts/${contactId}`, {
+    const response = await axios.delete(`${apiUrl}/contacts/${contactId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

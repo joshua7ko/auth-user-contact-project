@@ -17,7 +17,7 @@ const AddContact = ({isOpen, closeModal, onContactAdded}) => {
   
 
 
-
+  const apiUrl = import.meta.env.VITE_API_URL
          
 
   const handleSubmit = async (e) => {
@@ -35,7 +35,7 @@ const AddContact = ({isOpen, closeModal, onContactAdded}) => {
         setError("No Token Found In LocalStorage");
         return;
       }
-      const response = await axios.post('http://localhost:3001/contacts', newContact, {
+      const response = await axios.post(`${apiUrl}/contacts`, newContact, {
         headers: {
            Authorization: `Bearer ${token}`
         }

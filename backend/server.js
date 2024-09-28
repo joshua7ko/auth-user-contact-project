@@ -8,7 +8,7 @@ const userRouter = require('./routes/userRoutes.js')
 const contactRouter = require('./routes/contactRoutes.js')
 //SCHEMA
 const User = require('./models/userSchema.js')
-const port = process.env.PORT || 4001
+const port = process.env.PORT || 3001;
 
 
 // Connect to express app

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "../axiosConfig";
 import { useNavigate } from "react-router-dom";
 
+
 function Login(){
      const [users, setUsers] = useState([])
      const [username, setUsername] = useState('')
@@ -10,31 +11,37 @@ function Login(){
      const navigate = useNavigate()
 
 
-     useEffect(() => {
-        fetchUsers()
+     const apiUrl = import.meta.env.VITE_API_URL;
+
+     console.log('API URL:', apiUrl);
+
+//      useEffect(() => {
+//         fetchUsers()
 
 
-   }, []);
+//    }, []);
 
-   const fetchUsers = () => {
-       axios.get('http://localhost:3001/register')
-       .then((res) => {
-        //    console.log(res.data)
-       })
+//    const fetchUsers = () => {
+//        axios.get(`${apiUrl}/register`)
+//        .then((res) => {
+//         //    console.log(res.data)
+//        })
 
-   }
+//    }
 
    const handleLogin = async (event) => {
       event.preventDefault();
         try {
-           const response = await axios.post('http://localhost:3001/login', { username, password })
-            const token = response.data.token;
+            
+           const response = await axios.post(`${apiUrl}/login`, { username, password })
+           console.log("Response Data:", response.data); 
+           const token = response.data.token;
             localStorage.setItem('token', token);
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
             alert('User Login Succesful');
             setUsername('')
             setPassword('')
-            fetchUsers()
+            // fetchUsers()
             navigate('/account')
             window.location.reload()
             // localStorage.setItem('token', token)
