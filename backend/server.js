@@ -31,7 +31,13 @@ mongoose
 
 //Middlewares
 app.use(bodyParser.json()) 
-app.use(cors())
+app.use(cors(
+    {
+        origin: "https://auth-user-contact-project.vercel.app/",
+        methods: ["POST", "GET", "PUT", "DELETE"],
+        credentials: true
+    }
+));
 
 app.use(userRouter)
 app.use(contactRouter)
