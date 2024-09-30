@@ -33,8 +33,12 @@ mongoose
 app.use(bodyParser.json()) 
 app.use(cors(
     {
-        origin: "https://auth-user-contact-project.vercel.app/",
-        methods: ["POST", "GET", "PUT", "DELETE"],
+        origin: [
+                  "https://auth-user-contact-project.vercel.app",
+                  "https://auth-user-contact-project-production.up.railway.app",
+                  "http://localhost:5173"
+                ],
+        methods: ["POST", "GET", "PUT", "DELETE", "OPTIONS"],
         credentials: true
     }
 ));

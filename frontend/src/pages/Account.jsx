@@ -1,9 +1,7 @@
-
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from "../axiosConfig";
 import AddContact from './AddContact';
 import UpdateContact from './updateContact'
-
 
 
 
@@ -120,7 +118,12 @@ return (
               <div className="relative w-24 h-24">
               <div className="absolute top-0 left-0 w-full h-full rounded-full border-4 border-solid z-0 border-pink-500"></div>
               <img
-                src={contact?.image || './src/images/profile-image.webp'}
+                src={
+                  contact?.image ||
+                  '/profile-image.webp' ||
+                  './src/images/profile-image.webp' ||
+                  'No image'
+                }
                 alt="Profile Image"
                 className="w-full h-full rounded-full object-cover border-[6px] border-transparent relative z-10 p-1"
               />

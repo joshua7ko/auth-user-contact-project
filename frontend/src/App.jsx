@@ -36,7 +36,7 @@ function App(){
                     } 
                 />
                 
-                <Route  path="/account" element={isUserLoggedIn ? <Account /> : <Navigate to="/login" />} />
+                
             </Routes>
         </div>
        
