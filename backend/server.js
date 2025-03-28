@@ -36,6 +36,7 @@ app.use(cors(
         origin: [
                   "https://auth-user-contact-project.vercel.app",
                   "https://auth-user-contact-project-production.up.railway.app",
+                  "https://auth-user-contact-project-production.up.railway.app/login",
                   "http://localhost:5173"
                 ],
         methods: ["POST", "GET", "PUT", "DELETE", "OPTIONS"],
