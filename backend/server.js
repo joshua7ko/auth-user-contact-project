@@ -15,7 +15,7 @@ const port = process.env.PORT || 3001;
 // Connect to express app
 const app = express()
 
-// Connect to MongoDB
+// Connect to MongoDB//
 const dbconnectionString = process.env.dbURI
 
 mongoose 
