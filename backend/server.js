@@ -35,6 +35,7 @@ app.use(cors(
     {
         origin: [
                   "https://auth-user-contact-project.vercel.app",
+                  "https://auth-user-contact-project-cs4t5ocmv-joshuas-projects-522e4439.vercel.app",
                   "https://auth-user-contact-project-production.up.railway.app",
                   "http://localhost:5173"
                 ],
