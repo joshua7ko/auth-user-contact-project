@@ -30,7 +30,7 @@ mongoose
  
 
 //Middlewares
-app.use(bodyParser.json()) 
+ 
 app.use(cors(
     {
         origin: [
@@ -43,6 +43,11 @@ app.use(cors(
         optionsSuccessStatus: 200 
     }
 ));
+
+//  Handle preflight OPTIONS
+app.options('*', cors());
+
+app.use(bodyParser.json())
 
 app.use(userRouter)
 app.use(contactRouter)
